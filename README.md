@@ -1,2 +1,2 @@
-# paint-app-js
+# paint-app
 Paint App with Javascript
