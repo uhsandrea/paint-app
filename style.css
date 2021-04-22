@@ -5,6 +5,7 @@
 }
 
 body {
+  min-width: 750px;
   height: 100vh;
   background-color: rgb(41, 41, 41);
   display: flex;
@@ -17,8 +18,8 @@ body {
   width: 700px;
   height: 550px;
   background-color: white;
-  box-shadow: 0 4px 6px rgba(248, 248, 248, 0.712),
-    0 1px 3px rgba(0, 0, 0, 0.445);
+  box-shadow: 0 2.5px 6px rgba(248, 248, 248, 0.527),
+    0 1px 3px rgba(0, 0, 0, 0.356);
   border-radius: 15px;
   margin-bottom: 30px;
 }
