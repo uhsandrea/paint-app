@@ -5,44 +5,41 @@
 }
 
 body {
-  min-width: 750px;
+  min-width: 1050px;
   height: 100vh;
-  background-color: rgb(41, 41, 41);
+  background: linear-gradient(to right top, #65dfc9, #6cdbeb);
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 #canvas {
-  width: 700px;
-  height: 550px;
+  width: 800px;
+  height: 650px;
   background-color: white;
-  box-shadow: 0 2.5px 6px rgba(248, 248, 248, 0.527),
-    0 1px 3px rgba(0, 0, 0, 0.356);
-  border-radius: 15px;
-  margin-bottom: 30px;
+  box-shadow: 0 2.5px 6px rgba(252, 255, 255, 0.856),
+    0 1px 3px rgba(72, 135, 156, 0.719);
+  border-radius: 20px;
+  margin-right: 60px;
+  z-index: 5;
 }
 
-.control-btns {
+.controls {
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  margin-bottom: 15px;
-  width: 400px;
-}
-
-.btn {
-  font-size: 25px;
-  color: #efefef;
+  height: 550px;
+  padding: 22px;
+  background-color: #209bada4;
+  border-radius: 30px;
+  box-shadow: 0 2.5px 6px rgba(249, 253, 253, 0.76),
+    0 1px 3px rgba(72, 135, 156, 0.719);
+  z-index: 5;
 }
 
 .control-colors {
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  margin-bottom: 15px;
-  width: 520px;
 }
 
 .color {
@@ -56,32 +53,77 @@ body {
   width: 35px;
   border-radius: 5px;
   outline: none;
+  border: none;
 }
 
-.control-files i {
-  font-size: 25px;
+.control-btns {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 22px;
+  margin-top: 3px;
+}
+
+.btn {
+  font-size: 27px;
   color: #efefef;
-  margin: 0 10px;
+  margin-bottom: 13px;
+}
+
+.range {
+  -webkit-appearance: slider-vertical;
+  width: 25px;
+  margin-bottom: 30px;
 }
 
 .btn,
 .range,
 .color,
-.color-picker,
-.clear,
-.save {
+.color-picker {
   cursor: pointer;
 }
 
 .btn:active,
 .range:active,
 .color:active,
-.color-picker:active,
-.clear:active,
-.save:active {
+.color-picker:active {
   transform: scale(0.95);
 }
 
 .undo:active {
   color: black;
+}
+
+.circle1,
+.circle2,
+.circle3 {
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.1)
+  );
+  border-radius: 50%;
+  position: absolute;
+  z-index: 3;
+}
+
+.circle1 {
+  height: 400px;
+  width: 400px;
+  top: -100px;
+  left: -50px;
+}
+
+.circle2 {
+  height: 300px;
+  width: 300px;
+  bottom: -20px;
+  left: 110px;
+}
+
+.circle3 {
+  height: 350px;
+  width: 350px;
+  top: 80px;
+  left: 70%;
 }

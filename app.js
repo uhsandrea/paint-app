@@ -11,15 +11,21 @@ const save = document.querySelector(".save");
 
 const ctx = canvas.getContext("2d");
 
-canvas.height = 550;
-canvas.width = 700;
+const CANVAS_WIDTH = 800;
+const CANVAS_HEIGHT = 650;
+
+canvas.width = CANVAS_WIDTH;
+canvas.height = CANVAS_HEIGHT;
+
 // Default conditions
-ctx.fillStyle = "white";
-ctx.fillRect(0, 0, 700, 550);
-ctx.strokeStyle = "black";
-ctx.fillStyle = "black";
-ctx.lineWidth = 5;
-ctx.lineCap = "round";
+function defaultConditions() {
+  ctx.fillStyle = "white";
+  ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+  ctx.strokeStyle = "black";
+  ctx.fillStyle = "black";
+  ctx.lineWidth = 5;
+  ctx.lineCap = "round";
+}
 
 let painting = false;
 let filling = false;
@@ -64,9 +70,9 @@ function mouseMove(event) {
   }
 }
 
-// Whenever mouseup in canvas, save paint historu for undo function
+// Whenever mouseup in canvas, save paint history for undo function
 function mouseUp() {
-  paintHistory.push(ctx.getImageData(0, 0, 700, 550));
+  paintHistory.push(ctx.getImageData(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT));
   index += 1;
   console.log(paintHistory);
   console.log(index);
@@ -109,7 +115,7 @@ function clickFill() {
 
 function fillCanvas() {
   if (filling) {
-    ctx.fillRect(0, 0, 700, 550);
+    ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
     saveFillColor = ctx.fillStyle; // After filling canvas background, save this color for eraser
   }
 }
@@ -135,15 +141,13 @@ function clearCanvas() {
   erasing = false;
   filling = false;
   changeBtnColor("white", "white", "white");
-  ctx.clearRect(0, 0, 700, 550);
-  ctx.fillStyle = "white";
-  ctx.fillRect(0, 0, 700, 550);
-  ctx.fillStyle = "black";
+  ctx.clearRect(0, 0, 800, 650);
+  defaultConditions();
   saveFillColor = "white"
   saveStrokeColor = "black";
-  ctx.lineWidth = 5;
+  range.value = "5"
 
-  // Clear undo history
+  // Clear paint history
   paintHistory = [];
   index = -1;
 }
@@ -156,13 +160,14 @@ function saveCanvas() {
   link.click();
 }
 
+defaultConditions();
+
 canvas.addEventListener("mousemove", mouseMove);
 canvas.addEventListener("mousedown", startPainting);
 canvas.addEventListener("mouseup", mouseUp);
 canvas.addEventListener("mouseleave", stopPainting);
 
 undo.addEventListener("click", handleUndo);
-
 erase.addEventListener("click", clickErase);
 paint.addEventListener("click", clickPaint);
 fill.addEventListener("click", clickFill);
