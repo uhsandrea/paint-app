@@ -143,7 +143,7 @@ function clearCanvas() {
   saveStrokeColor = "black";
   ctx.lineWidth = 5;
 
-  // Clear undo history
+  // Clear paint history
   paintHistory = [];
   index = -1;
 }
