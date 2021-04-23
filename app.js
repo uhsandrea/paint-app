@@ -13,6 +13,7 @@ const ctx = canvas.getContext("2d");
 
 canvas.height = 550;
 canvas.width = 700;
+// Default conditions
 ctx.fillStyle = "white";
 ctx.fillRect(0, 0, 700, 550);
 ctx.strokeStyle = "black";
@@ -24,9 +25,12 @@ let painting = false;
 let filling = false;
 let erasing = false;
 
+// For eraser function
+// Want to keep background color (filing). Eraser erases drawing only.
 let saveFillColor = "white";
 let saveStrokeColor = "black";
 
+// For undo function
 let paintHistory = [];
 let index = -1;
 
@@ -60,6 +64,7 @@ function mouseMove(event) {
   }
 }
 
+// Whenever mouseup in canvas, save paint historu for undo function
 function mouseUp() {
   paintHistory.push(ctx.getImageData(0, 0, 700, 550));
   index += 1;
@@ -105,7 +110,7 @@ function clickFill() {
 function fillCanvas() {
   if (filling) {
     ctx.fillRect(0, 0, 700, 550);
-    saveFillColor = ctx.fillStyle;
+    saveFillColor = ctx.fillStyle; // After filling canvas background, save this color for eraser
   }
 }
 
