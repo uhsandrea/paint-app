@@ -29,20 +29,12 @@ body {
   justify-content: space-evenly;
   align-items: center;
   margin-bottom: 15px;
-  width: 330px;
+  width: 400px;
 }
 
-button {
-  border: none;
-  outline: none;
-  border-radius: 7px;
-  padding: 5px;
-  cursor: pointer;
-  width: 50px;
-}
-
-button:active {
-  transform: scale(0.95);
+.btn {
+  font-size: 25px;
+  color: #efefef;
 }
 
 .control-colors {
@@ -50,22 +42,46 @@ button:active {
   justify-content: space-evenly;
   align-items: center;
   margin-bottom: 15px;
-  width: 580px;
+  width: 520px;
 }
 
 .color {
-  height: 50px;
-  width: 50px;
+  height: 45px;
+  width: 45px;
   border-radius: 50%;
-  cursor: pointer;
-}
-
-.color:active {
-  transform: scale(0.97);
 }
 
 .color-picker {
-  height: 40px;
-  width: 40px;
+  height: 35px;
+  width: 35px;
+  border-radius: 5px;
+  outline: none;
+}
+
+.control-files i {
+  font-size: 25px;
+  color: #efefef;
+  margin: 0 10px;
+}
+
+.btn,
+.range,
+.color,
+.color-picker,
+.clear,
+.save {
   cursor: pointer;
+}
+
+.btn:active,
+.range:active,
+.color:active,
+.color-picker:active,
+.clear:active,
+.save:active {
+  transform: scale(0.95);
+}
+
+.undo:active {
+  color: black;
 }

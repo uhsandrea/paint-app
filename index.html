@@ -5,14 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/d7a4f68837.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Paint App</title>
   </head>
   <body>
     <canvas id="canvas"></canvas>
     <div class="control-btns">
-      <button class="undo">Undo</button>
-      <button class="erase">Erase</button>
-      <button class="mode">Fill</button>
+      <i class="fas fa-undo btn undo"></i>
+      <i class="fas fa-eraser btn erase"></i>
+      <i class="fas fa-paint-brush btn paint"></i>
+      <i class="fas fa-fill btn fill"></i>
       <input class="range" type="range" min="1" max="10" value="5" step="0.5" />
     </div>
     <div class="control-colors">
@@ -27,7 +32,10 @@
       <div class="color" style="background-color: #5856d6"></div>
       <input class="color-picker" type="color" />
     </div>
-    <button class="save">Save</button>
+    <div class="control-files">
+      <i class="fas fa-trash-alt clear"></i>
+      <i class="fas fa-save save"></i>
+    </div>
     <script src="app.js"></script>
   </body>
 </html>
